@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра с кубиками</title>
+    <style>
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(3, 100px); /* 3 колонки */
+            grid-template-rows: repeat(3, 100px); /* 3 строки */
+            gap: 5px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+        }
+
+            .cell img {
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: opacity 0.3s ease;
+            }
+
+                .cell img.back {
+                    opacity: 0; /* Заднее изображение скрыто по умолчанию */
+                }
+
+            .cell.revealed img.front {
+                opacity: 0; /* Переднее изображение исчезает */
+            }
+
+            .cell.revealed img.back {
+                opacity: 1; /* Заднее изображение становится видимым */
+            }
+    </style>
+</head>
+<body>
+    <h1>Игра с кубиками</h1>
+    <div class="grid">
+        <!-- Каждая ячейка содержит два изображения -->
+        <div class="cell" data-index="1">
+            <img src="front1.jpg" alt="Front" class="front"> <!-- Передняя картинка -->
+            <img src="image1.jpg" alt="Back" class="back">  <!-- Задняя картинка -->
+        </div>
+        <div class="cell" data-index="2">
+            <img src="front2.jpg" alt="Front" class="front">
+            <img src="image2.jpg" alt="Back" class="back">
+        </div>
+        <div class="cell" data-index="3">
+            <img src="front3.jpg" alt="Front" class="front">
+            <img src="image3.jpg" alt="Back" class="back">
+        </div>
+        <div class="cell" data-index="4">
+            <img src="front4.jpg" alt="Front" class="front">
+            <img src="image4.jpg" alt="Back" class="back">
+        </div>
+        <div class="cell" data-index="5">
+            <img src="front5.jpg" alt="Front" class="front">
+            <img src="image5.jpg" alt="Back" class="back">
+        </div>
+        <div class="cell" data-index="6">
+            <img src="front6.jpg" alt="Front" class="front">
+            <img src="image6.jpg" alt="Back" class="back">
+        </div>
+        <div class="cell" data-index="7">
+            <img src="front7.jpg" alt="Front" class="front">
+            <img src="image7.jpg" alt="Back" class="back">
+        </div>
+        <div class="cell" data-index="8">
+            <img src="front8.jpg" alt="Front" class="front">
+            <img src="image8.jpg" alt="Back" class="back">
+        </div>
+        <div class="cell" data-index="9">
+            <img src="front9.jpg" alt="Front" class="front">
+            <img src="image9.jpg" alt="Back" class="back">
+        </div>
+    </div>
+    <script>// Добавляем обработчики событий для всех ячеек
+    document.querySelectorAll('.cell').forEach(cell => {
+      cell.addEventListener('click', () => {
+        cell.classList.add('revealed'); // Открываем заднее изображение
+      });
+    });</script>
+</body>
+</html>
